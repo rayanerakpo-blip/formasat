@@ -40,7 +40,7 @@ la table `stats_module` et journalisent les suppressions.
 | Élément | Choix |
 |---|---|
 | Langage | PHP 8 (PDO) |
-| Base | MySQL — 6 tables, 5 triggers |
+| Base | MySQL — 6 tables (+2 créées par la migration), 5 triggers |
 | Front | HTML5, CSS3 |
 | Dépendances | aucune |
 
