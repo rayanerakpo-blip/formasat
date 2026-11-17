@@ -1,0 +1,8 @@
+# Configuration locale
+/.env
+/.env.*
+*.log
+
+# Système
+.DS_Store
+Thumbs.db

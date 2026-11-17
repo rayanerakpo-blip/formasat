@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormaSat - Inscription</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container-sm">
+    <div class="auth-header">
+        <a href="index.php" class="logo">Forma<span>Sat</span></a>
+        <p>Créez votre compte stagiaire</p>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Inscription</div>
+        <div class="card-subtitle">Remplissez le formulaire pour accéder à l'évaluation des modules</div>
+
+        <div id="message"></div>
+
+        <form action="inscription_traitement.php" method="POST">
+            <div class="form-grid-2">
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" required placeholder="Jean">
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required placeholder="Dupont">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Adresse email</label>
+                <input type="email" id="email" name="email" required placeholder="jean.dupont@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="mot_de_passe">Mot de passe</label>
+                <input type="password" id="mot_de_passe" name="mot_de_passe" required placeholder="********" minlength="8">
+            </div>
+
+            <div class="form-group">
+                <label for="confirmation">Confirmer le mot de passe</label>
+                <input type="password" id="confirmation" name="confirmation" required placeholder="********" minlength="8">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Créer mon compte</button>
+        </form>
+    </div>
+
+    <div class="auth-footer auth-links">
+        <a href="login.html" class="link">Se connecter</a>
+        <span aria-hidden="true">-</span>
+        <a href="admin_login.php" class="link">Espace admin</a>
+    </div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const message = document.getElementById('message');
+if (params.has('erreur') || params.has('succes')) {
+    const type = params.has('erreur') ? 'error' : 'success';
+    message.className = `alert alert-${type}`;
+    message.textContent = params.get(type === 'error' ? 'erreur' : 'succes');
+}
+</script>
+</body>
+</html>
